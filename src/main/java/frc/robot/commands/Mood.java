@@ -40,6 +40,7 @@ public class Mood extends Command {
   public void initialize() {
     mode = 0;
     mood = -1;
+    faces.clear();
     faces.resetTime();
     faces.startTime();
     faceTime = 0;
@@ -58,7 +59,6 @@ public class Mood extends Command {
     else if (controller.y().getAsBoolean()){
       mood = 2;
     }
-
     switch (mood){
       case 0:
         faces.setFace(faces.getFace("smile"));
@@ -69,6 +69,7 @@ public class Mood extends Command {
           mode++;
           mode = (mode % 4);
           frameNumber++;
+          
         }           
         if (mode == 0){
           faces.setFace(faces.getFace("dizzyOne"));
@@ -148,7 +149,8 @@ public class Mood extends Command {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+  }
 
   // Returns true when the command should end.
   @Override
